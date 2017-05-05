@@ -6,7 +6,7 @@
 #    By: angavrel <angavrel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/01/28 18:36:22 by angavrel          #+#    #+#              #
-#    Updated: 2017/05/06 00:55:10 by angavrel         ###   ########.fr        #
+#    Updated: 2017/05/06 01:44:41 by angavrel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ DIR_O = obj
 
 HEADER = incl
 
-SOURCES = ft_printf.c \
+SOURCES =	ft_printf.c \
 			parsing.c \
 			number.c \
 			string.c \

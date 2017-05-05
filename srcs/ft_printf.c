@@ -6,7 +6,7 @@
 /*   By: angavrel <angavrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/28 19:18:44 by angavrel          #+#    #+#             */
-/*   Updated: 2017/05/06 01:34:51 by angavrel         ###   ########.fr       */
+/*   Updated: 2017/05/06 01:43:46 by angavrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,8 @@ int		ft_dprintf(int fd, const char *format, ...)
 	{
 		if (*p.format == '%')
 		{
-			++p.format;
+			if (++(*p.format))
+				break;
 			parse_optionals(&p);
 		}
 		else
