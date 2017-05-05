@@ -6,7 +6,7 @@
 /*   By: angavrel <angavrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/16 15:55:33 by angavrel          #+#    #+#             */
-/*   Updated: 2017/05/04 13:36:19 by angavrel         ###   ########.fr       */
+/*   Updated: 2017/05/06 01:27:31 by angavrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,49 +22,32 @@
 */
 
 /*
-** returns position of a character in a string
-*/
-
-int				ft_strchr_index(char *s, int c)
-{
-	int		i;
-
-	i = 0;
-	while (s[i])
-	{
-		if (s[i] == c)
-			return (i);
-		++i;
-	}
-	return (-1);
-}
-
-/*
 ** bonus function that handles colors
 */
 
 void			color(t_printf *p)
 {
-	int	len;
+	int len;
 
-	if (!ft_strncmp(p->format, "{red}", (len = ft_strlen("{red}"))))
-		buffer(p, PF_RED, len);
-	else if (!ft_strncmp(p->format, "{green}", (len = ft_strlen("{green}"))))
-		buffer(p, PF_GREEN, len);
-	else if (!ft_strncmp(p->format, "{yellow}", (len = ft_strlen("{yellow}"))))
-		buffer(p, PF_YELLOW, len);
-	else if (!ft_strncmp(p->format, "{blue}", (len = ft_strlen("{blue}"))))
-		buffer(p, PF_BLUE, len);
-	else if (!ft_strncmp(p->format, "{purple}", (len = ft_strlen("{purple}"))))
-		buffer(p, PF_PURPLE, len);
-	else if (!ft_strncmp(p->format, "{cyan}", (len = ft_strlen("{cyan}"))))
-		buffer(p, PF_CYAN, len);
-	else if (!ft_strncmp(p->format, "{eoc}", (len = ft_strlen("{eoc}"))))
-		buffer(p, PF_EOC, len);
-	else
-		len = 0;
-	p->format += len - 1;
-	p->len += len;
+	p->printed = 5;
+	if (!ft_strncmp(p->format, "{red}", (len = 4)))
+		buffer(p, PF_RED, p->printed);
+	else if (!ft_strncmp(p->format, "{green}", (len = 6)))
+		buffer(p, PF_GREEN, p->printed);
+	else if (!ft_strncmp(p->format, "{yellow}", (len = 7)))
+		buffer(p, PF_YELLOW, p->printed);
+	else if (!ft_strncmp(p->format, "{blue}", (len = 5)))
+		buffer(p, PF_BLUE, p->printed);
+	else if (!ft_strncmp(p->format, "{purple}", (len = 7)))
+		buffer(p, PF_PURPLE, p->printed);
+	else if (!ft_strncmp(p->format, "{cyan}", (len = 5)))
+		buffer(p, PF_CYAN, p->printed);
+	else if (!ft_strncmp(p->format, "{eoc}", (len = 4)))
+		buffer(p, PF_EOC, --p->printed);
+	else if (!(len = 0))
+		p->printed = 0;
+	p->format += len;
+	p->len += p->printed;
 }
 
 static double	ft_dabs(double n)

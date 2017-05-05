@@ -1,18 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*   ft_strchr_index.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: angavrel <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: angavrel <angavrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/09/06 12:51:48 by angavrel          #+#    #+#             */
-/*   Updated: 2016/11/08 19:08:04 by angavrel         ###   ########.fr       */
+/*   Created: 2017/05/05 20:13:57 by angavrel          #+#    #+#             */
+/*   Updated: 2017/05/05 23:52:28 by angavrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_isdigit(int c)
+int		ft_strchr_index(char *s, int c)
 {
-	if (c >= '0' && c <= '9')
-		return (1);
-	return (0);
+	int		i;
+
+	i = 0;
+	while (s[i])
+	{
+		if (s[i] == c)
+			return (i);
+		++i;
+	}
+	return (-1);
 }
